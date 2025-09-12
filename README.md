@@ -1,34 +1,26 @@
-# AI Hands-on Project
+# Task Management App
 
-This repository contains a hands-on tutorial for building a simple full-stack web application with a form that saves data to a PostgreSQL database using Next.js 15, Prisma, and related tooling.
+シンプルなタスク管理アプリケーション
 
-## Prerequisites
+## 構成
 
-- Node.js 20 (see `.nvmrc`)
-- pnpm
+- **app/**: Next.js フロントエンド
+- **api/**: Go バックエンドAPI  
+- **docs/**: プロジェクト設計書
 
-## Getting Started
-
-Install dependencies and run the development server:
-
-```bash
-pnpm install
-pnpm dev
-```
-
-Start the database (PostgreSQL 16):
+## セットアップ
 
 ```bash
-docker compose up -d db
+# データベース起動
+docker-compose up -d
+
+# バックエンド起動
+cd api
+go run cmd/main.go
+
+# フロントエンド起動  
+cd app
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. The page auto-updates as you edit source files in `src/`.
-
-## API
-
-- `GET /api/health` returns `{ ok: true, now }`
-
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Prisma Documentation](https://www.prisma.io/docs)
+詳細は各フォルダのREADMEを参照してください。
