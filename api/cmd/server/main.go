@@ -4,7 +4,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 
 	"task-api/internal/handler"
@@ -14,10 +13,7 @@ import (
 )
 
 func main() {
-	// Load environment variables
-	if err := godotenv.Load(); err != nil {
-		log.Println("No .env file found")
-	}
+	// Environment variables are loaded from docker-compose.yml
 
 	// Initialize database
 	db, err := infrastructure.NewDatabase()

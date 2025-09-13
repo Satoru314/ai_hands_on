@@ -9,7 +9,6 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
-	"task-api/internal/repository/model"
 )
 
 // NewDatabase creates a new database connection
@@ -31,11 +30,6 @@ func NewDatabase() (*gorm.DB, error) {
 		return nil, fmt.Errorf("failed to connect to database: %w", err)
 	}
 
-	// Auto migrate
-	if err := db.AutoMigrate(&model.TaskModel{}); err != nil {
-		return nil, fmt.Errorf("failed to migrate database: %w", err)
-	}
-
-	log.Println("Database connected and migrated successfully")
+	log.Println("Database connected successfully")
 	return db, nil
 }

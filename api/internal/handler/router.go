@@ -18,7 +18,7 @@ func SetupRoutes(e *echo.Echo, taskUsecase *usecase.TaskUsecase) {
 	taskHandler := NewTaskHandler(taskUsecase)
 
 	// API routes
-	api := e.Group("/api/v1")
+	api := e.Group("/api")
 
 	// Task routes
 	api.POST("/tasks", taskHandler.CreateTask)
