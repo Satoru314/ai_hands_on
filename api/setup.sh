@@ -20,8 +20,11 @@ else
 fi
 
 # Initialize database
+make run-dev
 echo "Initializing database..."
 make init-db
 
 echo "Setup completed successfully!"
-echo "You can now run 'make run-dev' to start the development server"
+
+# Start development server
+echo "Starting development server..."
