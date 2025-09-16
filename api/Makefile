@@ -2,26 +2,26 @@
 
 # Development server (Docker + Go)
 run-dev:
-	@echo "🚀 Starting development environment..."
+	@echo "Starting development environment..."
 	@docker-compose -f ../docker-compose.yml up -d
-	@echo "✅ Development environment started!"
-	@echo "📍 API server: http://localhost:8080"
-	@echo "📍 Database: localhost:5432"
+	@echo "Development environment started!"
+	@echo "API server: http://localhost:8080"
+	@echo "Database: localhost:5432"
 
 # Initialize database tables
 init-db:
-	@echo "🗄️  Initializing database..."
+	@echo "Initializing database..."
 	@go run cmd/initdb/main.go
-	@echo "✅ Database initialization completed!"
+	@echo "Database initialization completed!"
 
 # Stop development environment
 stop:
-	@echo "🛑 Stopping development environment..."
+	@echo "Stopping development environment..."
 	@docker-compose -f ../docker-compose.yml down
 
 # Clean up (remove containers and volumes)
 clean:
-	@echo "🧹 Cleaning up..."
+	@echo "Cleaning up..."
 	@docker-compose -f ../docker-compose.yml down -v --remove-orphans
 
 # Show help

@@ -32,7 +32,7 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	fmt.Println("✅ Database connection successful!")
+	fmt.Println("Database connection successful!")
 
 	// Test auto migration
 	err = db.AutoMigrate(&model.TaskModel{})
@@ -40,12 +40,12 @@ func main() {
 		log.Fatalf("Failed to migrate database: %v", err)
 	}
 
-	fmt.Println("✅ Database migration successful!")
+	fmt.Println("Database migration successful!")
 
 	// Test basic query
 	var count int64
 	db.Model(&model.TaskModel{}).Count(&count)
-	fmt.Printf("✅ Current task count: %d\n", count)
+	fmt.Printf("Current task count: %d\n", count)
 
-	fmt.Println("🎉 Database setup verified successfully!")
+	fmt.Println("Database setup verified successfully!")
 }
