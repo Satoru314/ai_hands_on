@@ -5,7 +5,7 @@
 ## 構成
 
 - **app/**: Next.js フロントエンド
-- **api/**: Go バックエンドAPI  
+- **api/**: Go バックエンドAPI
 - **docs/**: プロジェクト設計書
 
 ## セットアップ
@@ -18,7 +18,7 @@ docker-compose up -d
 cd api
 go run cmd/main.go
 
-# フロントエンド起動  
+# フロントエンド起動
 cd app
 npm run dev
 ```

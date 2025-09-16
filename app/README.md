@@ -4,7 +4,7 @@
 
 ## 技術スタック
 - Next.js 15 (App Router)
-- TypeScript  
+- TypeScript
 - Tailwind CSS
 
 ## 構成
