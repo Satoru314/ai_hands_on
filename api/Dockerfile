@@ -9,8 +9,6 @@ RUN go mod download
 
 # Copy source code
 COPY ./api .
-# Copy .env file
-COPY .env .env
 
 # デバッグ: コピーされたファイル構造を確認
 RUN echo "=== Copied files ===" && ls -la
