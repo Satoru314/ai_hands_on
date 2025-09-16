@@ -9,6 +9,7 @@ import (
 // CreateTaskRequest represents the request for creating a task
 type CreateTaskRequest struct {
 	Content string     `json:"content" validate:"required"`
+	Status  string     `json:"status,omitempty"`
 	DueDate *time.Time `json:"due_date,omitempty"`
 }
 

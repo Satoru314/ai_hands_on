@@ -23,17 +23,20 @@ func NewTaskUsecase(taskRepo interfaces.TaskRepository) *TaskUsecase {
 }
 
 // CreateTask creates a new task with validation
-func (u *TaskUsecase) CreateTask(content string, dueDate *time.Time) (*entity.Task, error) {
+func (u *TaskUsecase) CreateTask(content string, status valueobject.TaskStatus, dueDate *time.Time) (*entity.Task, error) {
 	// Validation
 	if content == "" {
 		return nil, errors.New("task content cannot be empty")
+	}
+	if !status.IsValid() {
+		return nil, errors.New("invalid task status")
 	}
 
 	// Create model in usecase layer with timestamps
 	now := time.Now()
 	taskModel := &model.TaskModel{
 		Content:   content,
-		Status:    valueobject.StatusPending.String(),
+		Status:    status.String(),
 		DueDate:   dueDate,
 		CreatedAt: now,
 		UpdatedAt: now,

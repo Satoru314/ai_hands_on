@@ -41,8 +41,20 @@ func (h *TaskHandler) CreateTask(c echo.Context) error {
 		})
 	}
 
+	// Parse and validate status if provided
+	var status valueobject.TaskStatus = valueobject.StatusPending // default
+	if req.Status != "" {
+		status = valueobject.TaskStatus(req.Status)
+		if !status.IsValid() {
+			return c.JSON(http.StatusBadRequest, dto.ErrorResponse{
+				Error:   "validation_error",
+				Message: "Invalid status",
+			})
+		}
+	}
+
 	// Create task
-	task, err := h.taskUsecase.CreateTask(req.Content, req.DueDate)
+	task, err := h.taskUsecase.CreateTask(req.Content, status, req.DueDate)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, dto.ErrorResponse{
 			Error:   "creation_failed",
